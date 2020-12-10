@@ -3,9 +3,18 @@ class CompanyController < ApplicationController
   end
 
   def create
-    redirect_to @edit
+    @company = Company.new(company_params)
+    @company.save
+    redirect_to @company
   end
 
-  def edit
+  def show
+    @company = Company.find(params[:id])
   end
+
+  private
+
+    def company_params
+      params.require(:company).permit(:name, :description)
+    end
 end

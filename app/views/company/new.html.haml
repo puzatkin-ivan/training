@@ -1,1 +1,13 @@
-.container Hello, World!
+%div.container
+  %h3 New Company
+  = form_for(:company, url: {action: 'create'}) do |c| 
+    %div.form_field
+      %label.field_name Name
+      = c.text_field :name
+
+    %div.form_field
+      %label.field_name Description
+      = c.text_area :description
+
+    %div.form_submit
+      = c.submit
