@@ -1,0 +1,21 @@
+%div.container
+  %h3 New Training
+  = form_for(:course, url: {action: 'create'}) do |t| 
+    %div.form_field
+      %label.field_name Title
+      = t.text_field :name
+
+    %div.form_field
+      %label.field_name Company
+      = t.select(:company_id, ['Select company'] + @companies.collect { |c| [ c.name, c.id ] })
+
+    %div.form_field
+      %label.field_name Content
+      = t.text_area :content
+    
+    %div.form_field
+      %label.field_name Cost
+      = t.text_field     :cost
+
+    %div.form_submit
+      = t.submit

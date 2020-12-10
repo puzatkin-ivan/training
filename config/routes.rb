@@ -3,5 +3,7 @@ Rails.application.routes.draw do
 
   resources :company
 
+  resources :course
+
   get 'companies/show'
 end
