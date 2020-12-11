@@ -1,5 +1,13 @@
-%ol
-  - @companies.each do |company|
-    %li
+%ul.list-group.list-group-horizontal
+  %li.list-group-item Number
+  %li.list-group-item Name
+  %li.list-group-item Description
+
+- index = 0
+- @companies.each do |company|
+  %ul.list-group.list-group-horizontal-lg
+    %li.list-group-item= index = index + 1
+    %li.list-group-item
       %span= company.name
+    %li.list-group-item
       %span= company.description

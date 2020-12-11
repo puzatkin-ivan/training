@@ -1,17 +1,8 @@
 %div.container
   %div.course
-    %h3 Training
-
+    %h3= 'Course: ' + @course.name
+    %h5= 'by ' +  Company.find(@course.company_id).name
     %div.form_field
-      %label.field_name Name
-      %span= @course.name
-
-    %div.form_field
-      %label.field_name Company
-      %span= Company.find(@course.company_id).name
-
-    %div.form_field
-      %label.field_name Content
       %span= @course.content
 
     %div.form_field

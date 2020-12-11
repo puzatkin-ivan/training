@@ -1,13 +1,14 @@
 %div.container
-  %h3 New Company
+  %h4 New Company
+  %div.row
   = form_for(:company, url: {action: 'create'}) do |c| 
-    %div.form_field
-      %label.field_name Name
-      = c.text_field :name
+    %div.form_field.mb-3
+      %label{:class => 'form-label', :for => 'company_name' } Name
+      = c.text_field :name, id: 'company_name', class: 'form-control'
 
-    %div.form_field
-      %label.field_name Description
-      = c.text_area :description
+    %div.form_field.mb-3
+      %label{:class => 'form-label', :for => 'description' } Description
+      = c.text_area :description, id: 'description', class: 'form-control'
 
     %div.form_submit
-      = c.submit
+      = c.submit 'Save', class: 'btn btn-secondary'

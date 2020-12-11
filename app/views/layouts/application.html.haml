@@ -8,4 +8,15 @@
     = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
   %body
-    = yield
+    %div.container
+      %div.header.row
+        %div.logo.mb-3
+          %h3.title Go Training!
+
+        %div.toolbar.mb-3
+          =link_to "New company", new_company_url, class: 'btn' 
+          =link_to "Company List", companies_show_url, class: 'btn'
+          =link_to "New course", new_course_url, class: 'btn'
+          =link_to "Request List", requests_show_url, class: 'btn'
+
+      = yield

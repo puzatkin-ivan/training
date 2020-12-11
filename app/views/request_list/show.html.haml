@@ -1,5 +1,20 @@
-%ol
-  - @requests.each do |request|
-    %li
+%ul.list-group.list-group-horizontal
+  %li.list-group-item Number
+  %li.list-group-item Client Name
+  %li.list-group-item Training
+  %li.list-group-item Company
+  %li.list-group-item Cost
+
+- index = 0
+- @requests.each do |request|
+- course = request.training_id != nil ? Course.find(request.training_id) : nil
+  %ul.list-group.list-group-horizontal-lg
+    %li.list-group-item= index = index + 1
+    %li.list-group-item
       %span= request.client_name
-      %span= request.training_id != nil ? Course.find(request.training_id).name : 'Unknown'
+    %li.list-group-item
+      %span= course != nil ? course.name : 'Unknown'
+    %li.list-group-item
+      %span= course != nil ? Company.find(course.company_id).name : 'Unknown'
+    %li.list-group-item
+      %span= course != nil ? course.cost : 'Unknown'

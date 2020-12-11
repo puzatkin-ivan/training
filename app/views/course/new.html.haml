@@ -1,21 +1,22 @@
 %div.container
   %h3 New Training
+  %div.row
   = form_for(:course, url: {action: 'create'}) do |t| 
-    %div.form_field
-      %label.field_name Title
-      = t.text_field :name
+    %div.form_field.mb-3
+      %label{:class => 'form-label', :for => 'course_title' } Title
+      = t.text_field :name, id: 'course_title', class: 'form-control'
 
-    %div.form_field
-      %label.field_name Company
-      = t.select(:company_id, ['Select company'] + @companies.collect { |c| [ c.name, c.id ] })
+    %div.form_field.mb-3
+      %label{:for => 'course_company_id'} Company 
+      = t.select :company_id, ['Select company'] + @companies.collect { |c| [ c.name, c.id ] }, {},  { :class => 'form-select' }
 
-    %div.form_field
-      %label.field_name Content
-      = t.text_area :content
+    %div.form_field.mb-3
+      %label{:class => 'form-label', :for => 'content'} Content
+      = t.text_area :content, id: 'content', class: 'form-control'
     
-    %div.form_field
-      %label.field_name Cost
-      = t.text_field :cost
+    %div.form_field.mb-3
+      %label{:class => 'form-label', :for => 'cost'} Cost
+      = t.text_field :cost, id: 'cost', class: 'form-control'
 
     %div.form_submit
-      = t.submit
+      = t.submit 'Save', class: 'btn btn-secondary'
