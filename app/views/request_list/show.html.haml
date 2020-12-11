@@ -1,0 +1,5 @@
+%ol
+  - @requests.each do |request|
+    %li
+      %span= request.client_name
+      %span= request.training_id != nil ? Course.find(request.training_id).name : 'Unknown'

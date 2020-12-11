@@ -1,18 +1,22 @@
 %div.container
-  %h3 Training
+  %div.course
+    %h3 Training
 
-  %div.form_field
-    %label.field_name Name
-    %span= @course.name
+    %div.form_field
+      %label.field_name Name
+      %span= @course.name
 
-  %div.form_field
-    %label.field_name Company
-    %span= Company.find(@course.company_id).name
+    %div.form_field
+      %label.field_name Company
+      %span= Company.find(@course.company_id).name
 
-  %div.form_field
-    %label.field_name Content
-    %span= @course.content
+    %div.form_field
+      %label.field_name Content
+      %span= @course.content
 
-  %div.form_field
-    %label.field_name Cost
-    %span= @course.cost
+    %div.form_field
+      %label.field_name Cost
+      %span= @course.cost
+
+  %div.request
+    = render partial: 'request/request_form', locals: { course: @course }

@@ -1,0 +1,9 @@
+= form_for(:request, url: {controller: 'request', action: 'create'}) do |r| 
+  %div.form_field
+    = r.hidden_field :training_id, value: @course.id
+
+    %label.field_name Client Name
+    = r.text_field :client_name
+
+  %div.form_submit
+    = r.submit
