@@ -1,7 +1,7 @@
 %div.wrapper
   %h3 Send request
   %div.row
-  = form_for(:request, url: {controller: 'request', action: 'create'}) do |r| 
+  = form_for(:request, url: {controller: 'request', action: 'create'}, :html => { :id => 'send_request' }) do |r| 
     %div.form_field.mb-3
       = r.hidden_field :training_id, value: @course.id
 
@@ -11,4 +11,7 @@
 
       %div.form_submit
         = r.submit 'Save', class: 'btn btn-secondary'
-  
+  %div{ :id => 'result', :class => 'hidden' }
+    %h3 Запрос отправлен. Спасибо!
+
+= javascript_pack_tag 'request'
